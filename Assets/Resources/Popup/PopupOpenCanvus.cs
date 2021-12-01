@@ -1,17 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PopupOpenCanvus : MonoBehaviour
 {
+    private string clickedButtonName = null;
+    private string popupImagePath = null;
+
     public void OnButtonEvent()
     {
         PopupBuilder popupBuilder = new PopupBuilder(this.transform);
-        popupBuilder.SetTitle("팝업 테스트");
-        popupBuilder.SetDescription("테스트");
 
-        popupBuilder.SetButton("취소");
-        popupBuilder.SetButton("확인");
-        popupBuilder.Build();
+        clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
+        if(clickedButtonName != null)
+        {
+            switch (clickedButtonName)
+            {
+                case "LoanButton":
+                    popupImagePath = "LoanReturn";
+                    break;
+            }
+
+            popupBuilder.SetImage(popupImagePath);
+            popupBuilder.SetButton();
+            popupBuilder.Build();
+        }
     }
 }

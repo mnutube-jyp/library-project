@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopupBuilder
 {
     private Transform target = null;
-    private string title = null;
-    private string description = null;
+    private string imageName = null;
     private List<PopupButtonInfo> buttonInfoList = null;
+
 
     public PopupBuilder(Transform _target)
     {
@@ -21,25 +22,19 @@ public class PopupBuilder
 
         PopupPanel popupPanel = popupObject.GetComponent<PopupPanel>();
 
-        popupPanel.setTitle(this.title);
-        popupPanel.setDescription(this.description);
+        popupPanel.setImage(this.imageName);
         popupPanel.setButtons(this.buttonInfoList);
 
         popupPanel.Init();
     }
 
-    public void SetTitle(string _title)
+    public void SetImage(string _imageName)
     {
-        this.title = _title;
+        this.imageName = _imageName;
     }
 
-    public void SetDescription(string _description)
+    public void SetButton(CallbackEvent _callback = null)
     {
-        this.description = _description;
-    }
-
-    public void SetButton(string _text, CallbackEvent _callback = null)
-    {
-        this.buttonInfoList.Add(new PopupButtonInfo(_text, _callback));
+        this.buttonInfoList.Add(new PopupButtonInfo(_callback));
     }
 }

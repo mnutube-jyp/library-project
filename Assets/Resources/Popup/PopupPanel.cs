@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class PopupPanel : MonoBehaviour
 {
     [SerializeField]
-    private Text titleText = null;
-
-    [SerializeField]
-    private Text descriptionText = null;
-
-    [SerializeField]
     private GameObject buttonsLayout = null;
 
     [SerializeField]
     private GameObject buttonPrefab = null;
+
+    [SerializeField]
+    private GameObject image;
 
     private float time;
     public bool openState = true;
@@ -38,14 +35,16 @@ public class PopupPanel : MonoBehaviour
         }
     }
 
-    public void setTitle(string _title)
+    public void setImage(string _imageName)
     {
-        this.titleText.text = _title;
-    }
-
-    public void setDescription(string _description)
-    {
-        this.descriptionText.text = _description;
+        Sprite[] sprites = Resources.LoadAll<Sprite>("images");
+        foreach (Sprite sprite in sprites)
+        {
+            if (sprite.name == _imageName)
+            {
+                image.GetComponent<Image>().sprite = sprite;
+            }
+        }
     }
 
     public void setButtons(List<PopupButtonInfo> _popupButtonInfos)
@@ -55,7 +54,7 @@ public class PopupPanel : MonoBehaviour
             GameObject buttonObject = Instantiate(this.buttonPrefab);
             buttonObject.transform.SetParent(this.buttonsLayout.transform, false);
             PopupButton popupButton = buttonObject.GetComponent<PopupButton>();
-            popupButton.Init(info.text, info.callback, this.gameObject);
+            popupButton.Init(info.callback, this.gameObject);
         }
     }
 }
