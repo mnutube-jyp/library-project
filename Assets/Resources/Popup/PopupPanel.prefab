@@ -112,7 +112,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 43.1, y: -56.6}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5207477543764271369
 GameObject:
@@ -148,7 +148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.3, y: 44.5}
+  m_AnchoredPosition: {x: 94, y: 97}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1446918552464288675
@@ -223,7 +223,7 @@ RectTransform:
   m_GameObject: {fileID: 7547411540286798117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3060954212700231632}
   m_Father: {fileID: 0}
@@ -288,6 +288,7 @@ MonoBehaviour:
   descriptionText: {fileID: 5708828083599532960}
   buttonsLayout: {fileID: 2823189696315924646}
   buttonPrefab: {fileID: 4243704872880385017, guid: 67b610bcafa30074e98f0f91a1aa9575, type: 3}
+  openState: 1
 --- !u!95 &4905084726532083257
 Animator:
   serializedVersion: 3
