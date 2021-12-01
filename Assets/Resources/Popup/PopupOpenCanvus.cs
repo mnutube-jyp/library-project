@@ -20,6 +20,9 @@ public class PopupOpenCanvus : MonoBehaviour
                 case "LoanButton":
                     popupImagePath = "LoanReturn";
                     break;
+                case "SearchButton":
+                    popupImagePath = "Search";
+                    break;
             }
 
             popupBuilder.SetImage(popupImagePath);

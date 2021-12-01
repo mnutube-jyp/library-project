@@ -23,13 +23,13 @@ public class PopupPanel : MonoBehaviour
 
     private void Update()
     {
-        if(openState)
+        if (openState)
         {
             this.gameObject.transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.0f, 1.0f, 1.0f), Time.deltaTime * 10.0f);
             time += Time.deltaTime;
         }
 
-        if(time > 1f)
+        if (time > 1f)
         {
             openState = false;
         }
@@ -40,6 +40,7 @@ public class PopupPanel : MonoBehaviour
         Sprite[] sprites = Resources.LoadAll<Sprite>("images");
         foreach (Sprite sprite in sprites)
         {
+            Debug.Log(sprite.name);
             if (sprite.name == _imageName)
             {
                 image.GetComponent<Image>().sprite = sprite;
