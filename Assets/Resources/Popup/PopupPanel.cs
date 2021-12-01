@@ -14,8 +14,12 @@ public class PopupPanel : MonoBehaviour
     [SerializeField]
     private GameObject image;
 
+    [SerializeField]
+    private GameObject video;
+
     private float time;
     public bool openState = true;
+    public float duration = 10.0f;
 
     public void Init()
     {
@@ -25,7 +29,7 @@ public class PopupPanel : MonoBehaviour
     {
         if (openState)
         {
-            this.gameObject.transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.0f, 1.0f, 1.0f), Time.deltaTime * 10.0f);
+            this.gameObject.transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.0f, 1.0f, 1.0f), Time.deltaTime * duration);
             time += Time.deltaTime;
         }
 
@@ -33,6 +37,11 @@ public class PopupPanel : MonoBehaviour
         {
             openState = false;
         }
+    }
+
+    public void setVideo(bool _videoState)
+    {
+        video.SetActive(_videoState);
     }
 
     public void setImage(string _imageName)
@@ -47,7 +56,6 @@ public class PopupPanel : MonoBehaviour
             }
         }
     }
-
     public void setButtons(List<PopupButtonInfo> _popupButtonInfos)
     {
         foreach (var info in _popupButtonInfos)

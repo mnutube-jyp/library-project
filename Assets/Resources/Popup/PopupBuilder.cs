@@ -7,6 +7,7 @@ public class PopupBuilder
     private Transform target = null;
     private string imageName = null;
     private List<PopupButtonInfo> buttonInfoList = null;
+    private bool videoEnabled = false;
 
 
     public PopupBuilder(Transform _target)
@@ -24,8 +25,14 @@ public class PopupBuilder
 
         popupPanel.setImage(this.imageName);
         popupPanel.setButtons(this.buttonInfoList);
+        popupPanel.setVideo(this.videoEnabled);
 
         popupPanel.Init();
+    }
+
+    public void setVideo()
+    {
+        this.videoEnabled = true;
     }
 
     public void SetImage(string _imageName)

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 57533083}
   - component: {fileID: 57533082}
   m_Layer: 5
-  m_Name: ButtonCanvus
+  m_Name: MoveButtonCanvus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 335821576}
   - component: {fileID: 335821575}
   m_Layer: 5
-  m_Name: ButtonCanvus
+  m_Name: MoveButtonCanvus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
