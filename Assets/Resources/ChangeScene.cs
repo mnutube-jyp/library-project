@@ -2,13 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class ChangeScene : MonoBehaviour
 {
     private RaycastHit hit;
     private bool moveSceneReady;
     private bool zoomOut;
-    private string hitName;
+    private string clickedButtonName;
     
     private readonly CameraControl camCon = new CameraControl();
 
@@ -25,8 +26,8 @@ public class ChangeScene : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                hitName = hit.collider.name;
-                Debug.Log(hitName);
+                clickedButtonName = hit.collider.name;
+                Debug.Log(clickedButtonName);
                 zoomOut = true;
             }
         }
@@ -37,24 +38,30 @@ public class ChangeScene : MonoBehaviour
             moveSceneReady = Camera.main.fieldOfView <= 45.0f;
         }
 
-        if (moveSceneReady)
+        if (moveSceneReady && clickedButtonName != null)
         {
-            switch (hitName)
+            switch (clickedButtonName)
             {
-                case "MoveCafeObject":
+                case "MoveCafeButton":
                     changeScene("CafeScene");
                     break;
-                case "MoveLobbyObject":
+                case "MoveLobbyButton":
                     changeScene("LobbyScene");
                     break;
-                case "MoveChildObject":
+                case "MoveChildButton":
                     changeScene("ChildScene");
                     break;
-                case "MoveMainObject":
+                case "MoveMainButton":
                     changeScene("MainScene");
                     break;
             }
         }
+    }
+
+    public void onButtonClick ()
+    {
+        clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
+        zoomOut = true;
     }
 
     public void changeScene(string sceneName)
