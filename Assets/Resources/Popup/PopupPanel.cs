@@ -23,6 +23,7 @@ public class PopupPanel : MonoBehaviour
 
     public void Init()
     {
+        this.gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     private void Update()
@@ -46,15 +47,8 @@ public class PopupPanel : MonoBehaviour
 
     public void setImage(string _imageName)
     {
-        Sprite[] sprites = Resources.LoadAll<Sprite>("images");
-        foreach (Sprite sprite in sprites)
-        {
-            Debug.Log(sprite.name);
-            if (sprite.name == _imageName)
-            {
-                image.GetComponent<Image>().sprite = sprite;
-            }
-        }
+        Sprite sprite = Resources.Load<Sprite>("images/" + _imageName);
+        image.GetComponent<Image>().sprite = sprite;
     }
     public void setButtons(List<PopupButtonInfo> _popupButtonInfos)
     {
