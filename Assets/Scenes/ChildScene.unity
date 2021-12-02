@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -447,6 +447,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1458578473}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 802507705}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -459,11 +463,23 @@ PrefabInstance:
       value: OnButtonEvent
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetVolumeMin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PopupOpenCanvus, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: VideoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -627,6 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 802507706}
   canvus: {fileID: 1458578472}
+  rawImage: {fileID: 0}
 --- !u!328 &802507706
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -1067,6 +1084,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 802507705}
+        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
+        m_MethodName: SetVolumeMax
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1466087030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1443,10 +1472,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
@@ -1454,7 +1487,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1458578473}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 802507705}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
@@ -1462,11 +1503,23 @@ PrefabInstance:
       value: OnButtonEvent
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetVolumeMin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PopupOpenCanvus, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: VideoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -24,11 +23,7 @@ public class VideoController : MonoBehaviour
             Play();
         }
 
-        if (canvus.transform.childCount >= 1)
-        {
-            SetVolumeMax();
-        }
-        else
+        if (canvus.transform.childCount < 1)
         {
             SetVolumeMin();
         }
@@ -40,13 +35,13 @@ public class VideoController : MonoBehaviour
         videoPlayer.isLooping = true;
     }
 
-    void SetVolumeMax()
+    public void SetVolumeMax()
     {
         videoPlayer.SetDirectAudioMute(0, false);
         videoPlayer.SetDirectAudioVolume(0, 1);
     }
 
-    void SetVolumeMin()
+    public void SetVolumeMin()
     {
         videoPlayer.SetDirectAudioMute(0, true);
         videoPlayer.SetDirectAudioVolume(0, 0);
