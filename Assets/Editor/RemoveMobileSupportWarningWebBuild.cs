@@ -9,6 +9,7 @@ namespace Supyrb
 	/// removes a warning popup for mobile builds, that this platform might not be supported:
 	/// "Please note that Unity WebGL is not currently supported on mobiles. Press OK if you wish to continue anyway."
 	/// </summary>
+	/// test
 	public class RemoveMobileSupportWarningWebBuild
 	{
 		[PostProcessBuild]
