@@ -1,6 +1,10 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Video;
+# if PLATFORM_IOS
+using UnityEngine.iOS;
+# endif
 
 public class VideoController : MonoBehaviour
 {
@@ -9,6 +13,9 @@ public class VideoController : MonoBehaviour
 
     [SerializeField]
     private GameObject canvus = null;
+
+    [DllImport("__Internal")]
+    private static extern void HTMLButtonPlugin();
 
     void Start()
     {
@@ -36,8 +43,13 @@ public class VideoController : MonoBehaviour
         yield return null;
     }
 
-    void Play()
+    public void Play()
     {
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.Direct;
+        videoPlayer.EnableAudioTrack(0, true);
+        videoPlayer.SetDirectAudioMute(0, false);
+        videoPlayer.SetDirectAudioVolume(0, 1);
+
         videoPlayer.Play();
         videoPlayer.isLooping = true;
     }

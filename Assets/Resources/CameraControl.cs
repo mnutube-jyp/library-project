@@ -14,7 +14,6 @@ public class CameraControl : MonoBehaviour
 
     public GameObject target;
     private float time;
-    private bool openState = true;
 
     void Start()
     {
@@ -47,6 +46,7 @@ public class CameraControl : MonoBehaviour
     }
     internal IEnumerator ZoomCamera(float zoomValue)
     {
+        bool openState = true;
         if (openState)
         {
             Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomValue, Time.deltaTime);
