@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -11,7 +12,7 @@ public class VideoController : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "content.mp4");
+        StartCoroutine(SetPath());
         Play();
     }
 
@@ -27,6 +28,12 @@ public class VideoController : MonoBehaviour
         {
             SetVolumeMin();
         }
+    }
+
+    IEnumerator SetPath()
+    {
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "content.mp4");
+        yield return null;
     }
 
     void Play()

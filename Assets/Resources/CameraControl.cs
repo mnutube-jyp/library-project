@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,9 @@ public class CameraControl : MonoBehaviour
     private float cameraFov;
 
     public GameObject target;
-   
+    private float time;
+    private bool openState = true;
+
     void Start()
     {
         cameraFov = Camera.main.fieldOfView;
@@ -22,16 +25,16 @@ public class CameraControl : MonoBehaviour
     {
         if (cameraFov >= 80)
         {
-            zoomCamera(60.0f);
+            StartCoroutine(ZoomCamera(60.0f));
         }
 
         if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            moveCamera();
+            StartCoroutine(MoveCamera());
         }
     }
 
-    private void moveCamera()
+    IEnumerator MoveCamera()
     {
         float yRotateSize = -Input.GetAxis("Mouse X") * turnSpeed;
         float yRotate = transform.eulerAngles.y + yRotateSize;
@@ -39,10 +42,22 @@ public class CameraControl : MonoBehaviour
 
         xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 50);
         transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
-    }
 
-    public void zoomCamera(float zoomValue)
+        yield return new WaitForSeconds(.03f);
+    }
+    internal IEnumerator ZoomCamera(float zoomValue)
     {
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomValue, Time.deltaTime);
+        if (openState)
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomValue, Time.deltaTime);
+            time += Time.deltaTime;
+        }
+
+        if (time > 3f)
+        {
+            openState = false;
+        }
+       
+        yield return new WaitForSeconds(.1f);
     }
 }

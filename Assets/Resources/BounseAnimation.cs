@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BounseAnimation : MonoBehaviour
@@ -26,14 +24,8 @@ public class BounseAnimation : MonoBehaviour
         time += Time.deltaTime;
     }
 
-    public void resetAnim()
+    public void ResetAnim()
     {
         time = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

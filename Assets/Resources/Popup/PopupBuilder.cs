@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PopupBuilder
 {
@@ -23,14 +22,14 @@ public class PopupBuilder
 
         PopupPanel popupPanel = popupObject.GetComponent<PopupPanel>();
 
-        popupPanel.setImage(this.imageName);
-        popupPanel.setButtons(this.buttonInfoList);
-        popupPanel.setVideo(this.videoEnabled);
+        popupPanel.SetImage(this.imageName);
+        popupPanel.SetButtons(this.buttonInfoList);
+        popupPanel.SetVideo(this.videoEnabled);
 
         popupPanel.Init();
     }
 
-    public void setVideo()
+    public void SetVideo()
     {
         this.videoEnabled = true;
     }

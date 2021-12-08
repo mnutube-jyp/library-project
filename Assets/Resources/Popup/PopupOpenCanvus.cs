@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,7 +11,7 @@ public class PopupOpenCanvus : MonoBehaviour
         PopupBuilder popupBuilder = new PopupBuilder(this.transform);
 
         clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
-        if(clickedButtonName != null)
+        if (clickedButtonName != null)
         {
             switch (clickedButtonName)
             {
@@ -40,7 +38,7 @@ public class PopupOpenCanvus : MonoBehaviour
                     break;
                 case "MusicButton":
                     popupImagePath = null;
-                    popupBuilder.setVideo();
+                    popupBuilder.SetVideo();
                     break;
             }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,9 +29,15 @@ public class PopupPanel : MonoBehaviour
 
     private void Update()
     {
+        StartCoroutine(ZoomPopup(new Vector3(1.0f, 1.0f, 1.0f)));
+
+    }
+
+    IEnumerator ZoomPopup(Vector3 chagedValue)
+    {
         if (openState)
         {
-            this.gameObject.transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1.0f, 1.0f, 1.0f), Time.deltaTime * duration);
+            this.gameObject.transform.localScale = Vector3.Lerp(transform.localScale, chagedValue, Time.deltaTime * duration);
             time += Time.deltaTime;
         }
 
@@ -38,19 +45,21 @@ public class PopupPanel : MonoBehaviour
         {
             openState = false;
         }
+
+        yield return new WaitForSeconds(.1f);
     }
 
-    public void setVideo(bool _videoState)
+    public void SetVideo(bool _videoState)
     {
         video.SetActive(_videoState);
     }
 
-    public void setImage(string _imageName)
+    public void SetImage(string _imageName)
     {
         Sprite sprite = Resources.Load<Sprite>("images/" + _imageName);
         image.GetComponent<Image>().sprite = sprite;
     }
-    public void setButtons(List<PopupButtonInfo> _popupButtonInfos)
+    public void SetButtons(List<PopupButtonInfo> _popupButtonInfos)
     {
         foreach (var info in _popupButtonInfos)
         {

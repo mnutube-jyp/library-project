@@ -1,40 +1,20 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    private RaycastHit hit;
-    private bool moveSceneReady;
-    private bool zoomOut;
     private string clickedButtonName;
-    
-    private readonly CameraControl camCon = new CameraControl();
+    private bool moveSceneReady = false;
+    private bool zoomOut = false;
 
-    void Start()
-    {
-        zoomOut = false;
-        moveSceneReady = false;
-    }
+    private readonly CameraControl camCon = new CameraControl();
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (zoomOut)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                clickedButtonName = hit.collider.name;
-                Debug.Log(clickedButtonName);
-                zoomOut = true;
-            }
-        }
-
-        if(zoomOut)
-        {
-            camCon.zoomCamera(20.0f);
+            StartCoroutine(camCon.ZoomCamera(20.0f));
             moveSceneReady = Camera.main.fieldOfView <= 45.0f;
         }
 
@@ -43,28 +23,28 @@ public class ChangeScene : MonoBehaviour
             switch (clickedButtonName)
             {
                 case "MoveCafeButton":
-                    changeScene("CafeScene");
+                    LoadScene("CafeScene");
                     break;
                 case "MoveLobbyButton":
-                    changeScene("LobbyScene");
+                    LoadScene("LobbyScene");
                     break;
                 case "MoveChildButton":
-                    changeScene("ChildScene");
+                    LoadScene("ChildScene");
                     break;
                 case "MoveMainButton":
-                    changeScene("MainScene");
+                    LoadScene("MainScene");
                     break;
             }
         }
     }
 
-    public void onButtonClick ()
+    public void OnButtonClick()
     {
         clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
         zoomOut = true;
     }
 
-    public void changeScene(string sceneName)
+    private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
