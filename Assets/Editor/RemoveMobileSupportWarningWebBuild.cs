@@ -28,8 +28,8 @@ namespace Supyrb
 				var filePath = file.FullName;
 				var text = File.ReadAllText(filePath);
 				text = text.Replace("unityShowBanner('WebGL builds are not supported on mobile devices.');", "//" + "unityShowBanner('WebGL builds are not supported on mobile devices.');");
+				text = text.Replace("loadingBar.style.display = \"none\";", "window.unityInstance = unityInstance;" + "\n" + "loadingBar.style.display = \"none\";");
 
-				Debug.Log("Removing mobile warning from " + filePath);
 				File.WriteAllText(filePath, text);
 			}
 		}

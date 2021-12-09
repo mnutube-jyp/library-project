@@ -449,7 +449,7 @@ PrefabInstance:
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 802507705}
+      objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -567,7 +567,8 @@ GameObject:
   - component: {fileID: 802507702}
   - component: {fileID: 802507701}
   - component: {fileID: 802507706}
-  - component: {fileID: 802507705}
+  - component: {fileID: 802507703}
+  - component: {fileID: 802507704}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -629,7 +630,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802507699}
   m_CullTransparentMesh: 1
---- !u!114 &802507705
+--- !u!114 &802507703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -638,11 +639,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 802507699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c4d0bb83ad2e468f7bcd5ec404b6a, type: 3}
+  m_Script: {fileID: 11500000, guid: ec3cd40857f411d4d978cd4fbe85946d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 802507706}
+  unityVideoPlayer: {fileID: 802507706}
   canvus: {fileID: 1458578472}
+--- !u!114 &802507704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802507699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674367a3048717945b703d9cef8a6d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWebButtonShowing: 1
 --- !u!328 &802507706
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -668,9 +682,9 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: C:/Users/p/library-project/Assets/StreamingAssets\content.mp4
+  m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
+  m_DirectAudioMutes: 01
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
@@ -1083,9 +1097,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 802507705}
-        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
-        m_MethodName: SetVolumeMax
+      - m_Target: {fileID: 802507703}
+        m_TargetAssemblyTypeName: ContentVideo, Assembly-CSharp
+        m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1095,8 +1109,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 802507705}
-        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
+      - m_Target: {fileID: 802507704}
+        m_TargetAssemblyTypeName: IOSWebPlaybackHelper, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -1500,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 802507705}
+      objectReference: {fileID: 0}
     - target: {fileID: 3585502447252446498, guid: 0ebd0fcc6a6a15645b39a2d9c0547143, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
